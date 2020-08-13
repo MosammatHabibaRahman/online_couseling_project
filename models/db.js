@@ -5,8 +5,7 @@ function getConnection(callback){
         host	: 'localhost',
         user	: 'root',
         password: '',
-        database: 'mentalHealthCounselingDB',
-        socket: '/opt/lampp/var/mysql/mysql.sock',
+        database: 'mentalhealthcounselingdb',
     });
     con.connect(function(err) {
         if (err) {
