@@ -3,7 +3,6 @@ var router = express.Router();
 var appointmentModel=require('../models/appointment');
 var patientModel=require('../models/patient');
 
-
 router.get('/', function (req, res){
 if(req.session.user_id!=null){
     appointmentModel.getForDoc(req.session.docId,function (results){

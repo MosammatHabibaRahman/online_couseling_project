@@ -22,7 +22,6 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="/patient/appointment">Request Appointment</a>
                             <a class="dropdown-item" href="/patient/docList">Find a Doctor</a>
-                            <a class="dropdown-item" href="/patient/progReport">Progress Report</a>
                             <a class="dropdown-item" href="/patient/prescriptions">Prescriptions</a>
                             <a class="dropdown-item" href="/patient/subPlans">Subscription Plans</a>
                         </div>
@@ -51,39 +50,24 @@
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label for="name"><strong>Full Name:</strong></label>
-                                            <input type="text" class="form-control" name="name" id="name" placeholder="Full Name"/>
+                                            <input type="text" class="form-control" name="name" id="name" value="<%= patient.name %>"/>
                                         </div>
                                     </div>
         
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label for="email"><strong>Email:</strong></label>
-                                            <input type="email" class="form-control" name="email" id="email" placeholder="Email"/>
-                                        </div>
+                                            <input type="email" class="form-control" name="email" id="email" value="<%= patient.email %>"/>
+                                          </div>
                                     </div>
                                 </div>
         
-                                <div class="row">
-                                    <div class="col-12 col-md-6">
-                                        <div class="form-group">
-                                            <label for="username"><strong>Username:</strong></label>
-                                            <input type="text" class="form-control" name="username" id="username" placeholder="Username"/>
-                                        </div>
-                                    </div>
-        
-                                    <div class="col-12 col-md-6">
-                                        <div class="form-group">
-                                            <label for="password"><strong>Password:</strong></label>
-                                            <input type="password" class="form-control" name="password" id="password" placeholder="Password"/>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="row">
                                     <div class="col-12 col-md-4">
                                         <div class="form-group">
                                             <label for="phone"><strong>Phone:</strong></label>
-                                            <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone"/>
-                                        </div>
+                                            <input type="text" class="form-control" name="phone" id="phone" value="<%= patient.phone %>"/>
+                                          </div>
                                     </div>
         
                                     <div class="col-12 col-md-4">
@@ -112,30 +96,13 @@
                                             </select>
                                         </div>
                                     </div>
-        
-                                    <!-- <div class="col-12 col-md-12">
-                                        <div class="form-group">
-                                            <label for="subPlan"><strong>Subscription Plan:</strong></label>
-                                            <select class="form-control" name="subPlan" id="subPlan">
-                                                <option>Basic</option>
-                                                <option>Standard</option>
-                                                <option>Premium</option>
-                                            </select>
-                                        </div>
-                                    </div> -->
                                 </div>
         
                                 <div class="row">
                                     <div class="col-12 col-md-12">
                                         <div class="input-group mb-3">
-                                            <div class="custom-file">
-                                              <input type="file" class="custom-file-input" id="inputGroupFile02">
-                                              <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
-                                            </div>
-                                            <div class="input-group-append">
-                                              <span class="input-group-text" id="">Upload</span>
-                                            </div>
-                                        </div>
+                                            <input type="file" name="propic" id="propic" value=""/>
+                                          </div>
                                     </div>
                                 </div>
 

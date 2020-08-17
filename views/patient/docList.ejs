@@ -22,7 +22,6 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="/patient/appointment">Request Appointment</a>
                         <a class="dropdown-item active" href="/patient/docList">Find a Doctor</a>
-                        <a class="dropdown-item" href="/patient/progReport">Progress Report</a>
                         <a class="dropdown-item" href="/patient/prescriptions">Prescriptions</a>
                         <a class="dropdown-item" href="/patient/subPlans">Subscription Plans</a>
                     </div>
@@ -57,11 +56,12 @@
                                 </tr>
                             </thead>
                             <tbody class="text-center">
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Gender</td>
-                                    <td>Qualifications</td>
-                                    <td>Specialty</td>
+                              <% for (var i =0; i <doctors.length;  i++ ) { %>
+                              <tr>
+                                    <td><%=doctors[i].name%></td>
+                                    <td><%=doctors[i].gender%></td>
+                                    <td><%=doctors[i].qualifications%></td>
+                                    <td><%=doctors[i].specialty%></td>
                                     <td>
                                         <div class="btn-group" role="group">
                                             <button id="action" type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -69,11 +69,12 @@
                                             </button>
                                             <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                                               <a class="dropdown-item" href="#">Send Message</a>
-                                              <a class="dropdown-item" href="#">Make Appointment</a>
+                                              <a class="dropdown-item" href="/patient/appointment?id=<%=doctors[i].d_id%>">Make Appointment</a>
                                             </div>
                                         </div>
                                     </td>
-                                </tr>
+                               </tr>
+                               <% } %>
                             </tbody>
                         </table>
                     </div>

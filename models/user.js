@@ -62,6 +62,7 @@ module.exports ={
             }
         });
     },
+
     updateAmount: function (user, callback){
         var sql = "update users set ammount="+user.amount+" where id="+user.id;
         db.execute(sql, function(status){

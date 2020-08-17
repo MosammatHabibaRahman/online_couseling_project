@@ -22,7 +22,6 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="/patient/appointment">Request Appointment</a>
                         <a class="dropdown-item" href="/patient/docList">Find a Doctor</a>
-                        <a class="dropdown-item" href="/patient/progReport">Progress Report</a>
                         <a class="dropdown-item active" href="/patient/prescriptions">Prescriptions</a>
                         <a class="dropdown-item" href="/patient/subPlans">Subscription Plans</a>
                     </div>
@@ -46,32 +45,40 @@
                         <strong>My Prescriptions</strong>
                     </div>
                     <div class="card-body">
-                        <table class="table table-hover mt-4">
+                      <% if(pres==null) { %>
+                        <div class="alert alert-info" role="alert" name="alert">
+                          No prescriptions available as of now.
+                        </div>
+                      <%} else{ %>
+                          <table class="table table-hover mt-4">
                             <thead class="text-center">
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Qty</th>
-                                    <th>Type</th>
-                                    <th>Duration</th>
-                                    <th>Timing</th>
-                                    <th>Date</th>
-                                    <th>Notes</th>
-                                    <th>Download</th>
-                                </tr>
+                              <tr>
+                                  <th>Name</th>
+                                  <th>Qty</th>
+                                  <th>Type</th>
+                                  <th>Duration</th>
+                                  <th>Timing</th>
+                                  <th>Date</th>
+                                  <th>Notes</th>
+                                  <th>Download</th>
+                              </tr>
                             </thead>
                             <tbody class="text-center">
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Qty</td>
-                                    <td>Type</td>
-                                    <td>Duration</td>
-                                    <td>Timing</td>
-                                    <td>Date</td>
-                                    <td>Notes</td>
-                                    <td>
-                                        <button type="button" class="btn btn-primary btn-sm">Download</button>
-                                    </td>
-                                </tr>
+                                <% for(var i=0; i<pres.length; i++) { %>
+                                    <tr>
+                                      <td><%= pres[i].name %></td>
+                                      <td><%= pres[i].qty %></td>
+                                      <td><%= pres[i].type %></td>
+                                      <td><%= pres[i].duration %></td>
+                                      <td><%= pres[i].timing %></td>
+                                      <td><%= pres[i].date %></td>
+                                      <td><%= pres[i].notes %></td>
+                                      <td>
+                                        <button type="button" class="btn btn-primary btn-sm" name="download">Download</button>
+                                      </td>
+                                    </tr>
+                                 <% }} %>
+
                             </tbody>
                         </table>
                     </div>

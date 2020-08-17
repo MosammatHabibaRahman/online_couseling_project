@@ -22,7 +22,6 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="/patient/appointment">Request Appointment</a>
                         <a class="dropdown-item" href="/patient/docList">Find a Doctor</a>
-                        <a class="dropdown-item" href="/patient/progReport">Progress Report</a>
                         <a class="dropdown-item" href="/patient/prescriptions">Prescriptions</a>
                         <a class="dropdown-item active" href="/patient/subPlans">Subscription Plans</a>
                     </div>
@@ -44,9 +43,15 @@
                 <div class="card">
                     <img src="/assets/img/placeholder.jpg" class="card-img-top">
                     <div class="card-body">
-                      <h5 class="card-title">Basic</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                      <h5 class="card-title"><%= subs[0].name %></h5>
+                      <p class="card-text">
+                        <ul>
+                          <li>Duration: <%= subs[0].duration %></li>
+                          <li>Duration: <%= subs[0].price %></li>
+                          <li>Features: <%= subs[0].features %></li>
+                        </ul>
+                      </p>
+                      <a href="/patient/changeSub?btn=Basic" class="btn btn-primary">Switch to Basic</a>
                     </div>
                 </div>
             </div>
@@ -54,9 +59,15 @@
                 <div class="card">
                     <img src="/assets/img/placeholder.jpg" class="card-img-top">
                     <div class="card-body">
-                      <h5 class="card-title">Standard</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                      <h5 class="card-title"><%= subs[1].name %></h5>
+                      <p class="card-text">
+                        <ul>
+                          <li>Duration: <%= subs[1].duration %></li>
+                          <li>Duration: <%= subs[1].price %></li>
+                          <li>Features: <%= subs[1].features %></li>
+                        </ul>
+                      </p>
+                      <a href="/patient/changeSub?btn=Standard" class="btn btn-primary">Switch to Standard</a>
                     </div>
                 </div>
             </div>
@@ -64,9 +75,15 @@
                 <div class="card">
                     <img src="/assets/img/placeholder.jpg" class="card-img-top">
                     <div class="card-body">
-                      <h5 class="card-title">Premium</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                      <h5 class="card-title"><%= subs[2].name %></h5>
+                      <p class="card-text">
+                        <ul>
+                          <li>Duration: <%= subs[2].duration %></li>
+                          <li>Duration: <%= subs[2].price %></li>
+                          <li>Features: <%= subs[2].features %></li>
+                        </ul>
+                      </p>
+                      <a href="/patient/changeSub?btn=Premium" class="btn btn-primary">Switch to Premium</a>
                     </div>
                 </div>
             </div>

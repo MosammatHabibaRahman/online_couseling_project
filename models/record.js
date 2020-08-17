@@ -26,4 +26,29 @@ checkRecord: function(id, callback){
         });
     },
 
+	insert: function(record, callback){
+        var sql = "insert into healthrecord values (NULL, '"+record.height+"', '"+record.weight+"', '"+record.bp+"', '"+record.pulseRate+"', '"+record.mood+"', '"+record.sleepDuration+"', '"+record.description+"', "+record.p_id+",NULL)";
+
+        console.log(sql);
+
+        db.execute(sql, function(status){
+            if(status){
+                callback(true);
+            }else{
+                callback(false);
+            }
+        });
+    },
+
+	update: function(record, callback){
+        var sql = "update healthrecord set height='"+record.height+"', weight='"+record.weight+"', bp='"+record.bp+"',pulseRate='"+record.pulseRate+"',mood='"+record.mood+"',sleepDuration='"+record.sleepDuration+"',description='"+record.description+"' where p_id="+record.p_id;
+        db.execute(sql, function(status){
+            if(status){
+                callback(true);
+            }else{
+                callback(false);
+            }
+        });
+    },
+
 }

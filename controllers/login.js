@@ -7,7 +7,8 @@ router.get('/',function (req,res){
 });
 
 router.post('/', function (req,res){
-    var user={
+    
+	var user={
         username:req.body.username,
         password:req.body.password
     };
@@ -25,12 +26,17 @@ router.post('/', function (req,res){
 				res.redirect('/patient');
             }
 			else if(req.session.status=="staff"){
-
-            }
-            else {
-				//res.send('invalid username or password');
+				res.send('<h1>Staff Home</h1>');
+			}
+            else
+			{
+				res.redirect('/login');
             }
         }
+		else
+		{
+			res.redirect('/login');
+		}
     });
 });
 

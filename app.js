@@ -1,14 +1,15 @@
-var express 	= require('express');
-var exSession 	= require('express-session');
-var bodyParser 	= require('body-parser');
-var doctor  = require('./controllers/doctor');
-var patient  = require('./controllers/patient');
-var registration= require('./controllers/registration');
+var express 		= require('express');
+var exSession 		= require('express-session');
+var bodyParser 		= require('body-parser');
+var doctor			= require('./controllers/doctor');
+var patient			= require('./controllers/patient');
+var registration	= require('./controllers/registration');
 var login = require('./controllers/login');
-var logout =require('./controllers/logout');
-var appointment=require('./controllers/appointment');
+var logout = require('./controllers/logout');
+var appointment = require('./controllers/appointment');
 var coockieParser=require('cookie-parser');
 var fileUpload=require('express-fileupload');
+//var exValidator = require('express-validator');
 var app 		= express();
 
 //config

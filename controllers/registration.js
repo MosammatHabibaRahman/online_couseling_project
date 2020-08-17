@@ -24,7 +24,16 @@ router.post('/patient',function (req,res){
         status: "patient"
     };
     var userFlag;
-    userModel.insert(user,function (result){
+	if(req.body.name=="" || req.body.phone=="" || req.body.email==""){
+		res.send("Name, phone or email fields cannot be empty! <a href="+"/registration/patient"+">Try Again</a>");
+	}
+	else if(req.body.phone.length > 15)
+	{
+		res.send("Phone cannot be longer than 15 characters. <a href="+"/registration/patient"+">Try Again</a>");
+	}
+	else
+	{
+		userModel.insert(user,function (result){
         console.log(result);
         if(result){
             userModel.validate(user, function (results){
@@ -39,16 +48,17 @@ router.post('/patient',function (req,res){
                         propic:req.body.propic,
                         user_id:results[0].id
                     };
-                    patientModel.insert(patient,function (status){
-                        if(status){
-                            console.log(status);
-							res.redirect('login/index');
-                        }
-                        else{
+					
+					patientModel.insert(patient,function (status){
+						if(status){
 							console.log(status);
-                            res.redirect('registration/patient');
-                        }
-                    });
+							res.redirect('/login');
+						}
+						else{
+							console.log(status);
+							res.redirect('registration/patient');
+						}
+					});
                 }
                 else{
                     res.send("username taken");
@@ -59,6 +69,7 @@ router.post('/patient',function (req,res){
             res.send("username taken </br> <a href='/registration/patient'>try again</a>");
         }
     });
+	}
 
 });
 

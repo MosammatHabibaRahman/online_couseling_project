@@ -22,7 +22,6 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="/patient/appointment">Request Appointment</a>
                         <a class="dropdown-item" href="/patient/docList">Find a Doctor</a>
-                        <a class="dropdown-item" href="/patient/progReport">Progress Report</a>
                         <a class="dropdown-item" href="/patient/prescriptions">Prescriptions</a>
                         <a class="dropdown-item" href="/patient/subPlans">Subscription Plans</a>
                     </div>
@@ -48,32 +47,111 @@
                         <form method="post">
                             <div class="row">
                                 <div class="col-12 col-md-4">
+                                    <% if(record==null){ %>
+                                    <div class="form-group">
+                                      <label for="height">
+                                        <strong>Height:</strong>
+                                      </label>
+                                      <input type="number" class="form-control" name="height" id="height" placeholder="Height"/>
+                                    </div>
+                                  </div>
+
+                                  <div class="col-12 col-md-4">
+                                    <div class="form-group">
+                                      <label for="weight">
+                                        <strong>Weight:</strong>
+                                      </label>
+                                      <input type="number" class="form-control" name="weight" id="weight" placeholder="Weight"/>
+                                    </div>
+                                  </div>
+
+                                  <div class="col-12 col-md-4">
+                                    <div class="form-group">
+                                      <label for="bp">
+                                        <strong>Blood Pressure:</strong>
+                                      </label>
+                                      <input type="number" class="form-control" name="bp" id="bp" placeholder="Blood Pressure"/>
+                                    </div>
+                                  </div>
+
+                                </div>
+
+                                <div class="row">
+
+                                  <div class="col-12 col-md-4">
+                                    <div class="form-group">
+                                      <label for="pulseRate">
+                                        <strong>Pulse Rate:</strong>
+                                      </label>
+                                      <input type="number" class="form-control" name="pulseRate" id="pulseRate" placeholder="Pulse Rate"/>
+                                    </div>
+                                  </div>
+
+                                  <div class="col-12 col-md-4">
+                                    <div class="form-group">
+                                      <label for="mood">
+                                        <strong>Mood:</strong>
+                                      </label>
+                                      <select class="form-control" name="mood" id="mood">
+                                        <option>I'm Feeling...</option>
+                                        <option>Excellent</option>
+                                        <option>Good</option>
+                                        <option>Okay</option>
+                                        <option>Bad</option>
+                                        <option>Awful</option>
+                                      </select>
+                                    </div>
+                                  </div>
+
+                                  <div class="col-12 col-md-4">
+                                    <div class="form-group">
+                                      <label for="sleepDuration">
+                                        <strong>Sleep Hours:</strong>
+                                      </label>
+                                      <input type="text" class="form-control" name="sleepDuration" id="sleepDuration" placeholder="Sleep Hours"/>
+                                    </div>
+                                  </div>
+
+                                </div>
+
+                                <div class="row">
+                                  <div class="col-12 col-md-12">
+                                    <div class="form-group">
+                                      <label for="description">
+                                        <strong>Description</strong>
+                                      </label>
+                                      <textarea class="form-control" name="description" id="description" rows="3"></textarea>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="row">
+                                  <div class="col-12 col-md-12">
+                                    <button type="submit" class="btn btn-primary btn-block" name="update" id="update">Update</button>
+                                  </div>
+                                </div>
+                              </form>
+                                    <% }else{ %>
                                     <div class="form-group">
                                         <label for="height"><strong>Height:</strong></label>
-                                        <input type="number" class="form-control" name="height" id="height" placeholder="Height"/>
+                                        <input type="number" class="form-control" name="height" id="height" value="<%= record.height %>"/>
                                     </div>
                                 </div>
     
                                 <div class="col-12 col-md-4">
                                     <div class="form-group">
                                         <label for="weight"><strong>Weight:</strong></label>
-                                        <input type="number" class="form-control" name="weight" id="weight" placeholder="Weight"/>
-                                    </div>
+                                        <input type="number" class="form-control" name="weight" id="weight" value="<%= record.weight %>"/>
+                                      </div>
                                 </div>
 
-                                <div class="col-12 col-md-2">
+                                <div class="col-12 col-md-4">
                                     <div class="form-group">
-                                        <label for="bpS"><strong>BP SYS:</strong></label>
-                                        <input type="number" class="form-control" id="bpS" placeholder="BP SYS">
-                                    </div>
+                                        <label for="bp"><strong>Blood Pressure:</strong></label>
+                                        <input type="number" class="form-control" name="bp" id="bp" value="<%= record.bp %>"/>
+                                      </div>
                                 </div>
 
-                                <div class="col-12 col-md-2">
-                                    <div class="form-group">
-                                        <label for="bpD"><strong>BP DIA:</strong></label>
-                                        <input type="number" class="form-control" id="bpD" placeholder="BP DIA">
-                                    </div>
-                                </div>
                             </div>
 
                             <div class="row">
@@ -81,8 +159,8 @@
                                 <div class="col-12 col-md-4">
                                     <div class="form-group">
                                         <label for="pulseRate"><strong>Pulse Rate:</strong></label>
-                                        <input type="number" class="form-control" name="pulseRate" id="pulseRate" placeholder="Pulse Rate"/>
-                                    </div>
+                                        <input type="number" class="form-control" name="pulseRate" id="pulseRate" value="<%= record.pulseRate %>"/>
+                                      </div>
                                 </div>
     
                                 <div class="col-12 col-md-4">
@@ -102,8 +180,8 @@
                                 <div class="col-12 col-md-4">
                                     <div class="form-group">
                                         <label for="sleepDuration"><strong>Sleep Hours:</strong></label>
-                                        <input type="text" class="form-control" name="sleepDuration" id="sleepDuration" placeholder="Sleep Hours"/>
-                                    </div>
+                                        <input type="text" class="form-control" name="sleepDuration" id="sleepDuration" value="<%= record.sleepDuration %>"/>
+                                      </div>
                                 </div>
     
                             </div>
@@ -112,7 +190,9 @@
                                 <div class="col-12 col-md-12">
                                     <div class="form-group">
                                         <label for="description"><strong>Description</strong></label>
-                                        <textarea class="form-control" name="description" id="description" rows="3"></textarea>
+                                        <textarea class="form-control" name="description" id="description" rows="3">
+                                        <%= record.description %>
+                                        </textarea>
                                     </div>
                                 </div>
                             </div>
@@ -123,6 +203,7 @@
                                 </div>
                             </div>
                         </form>
+                        <% } %>
                     </div>
                 </div>
             </div>
